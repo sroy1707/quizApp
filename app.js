@@ -19,7 +19,7 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 
 mongoose
-  .connect("mongodb://localhost:27017/quiz", {
+  .connect(process.env.LOCAL_DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -30,8 +30,6 @@ mongoose
 app.use("/api/v1/questions", questionRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/quiz", quizRouter);
-
-console.log(process.env.BUCKET_ID);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
