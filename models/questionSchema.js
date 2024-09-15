@@ -32,8 +32,13 @@ const questionSchema = new mongoose.Schema({
     required: true,
   },
   shift: {
-    type: String,
-    enum: ["Shift 1", "Shift 2", "Shift 3", "Shift 4"],
+    type: Number,
+    enum: [1, 2, 3, 4],
+    required: true,
+  },
+  tier: {
+    type: Number,
+    enum: [1, 2],
     required: true,
   },
   tag: {
@@ -44,6 +49,11 @@ const questionSchema = new mongoose.Schema({
   difficulty: {
     type: String,
     enum: ["Easy", "Medium", "Hard"],
+    required: true,
+  },
+  exam: {
+    type: String,
+    enum: ["CGL", "CHSL", "MTS", "CPO", "STENO", "Selection Post"],
     required: true,
   },
   subject: {
